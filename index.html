@@ -14,8 +14,11 @@
 
     <!-- Boxicons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/adm-petshop-main/global.css" />
+
 </head>
 
 <body>
@@ -74,7 +77,15 @@
                     <strong>Corte de Unhas e Higienização</strong>
                     <a href="#">R$ 35,00</a>
                 </div>
-            </div>
+
+                <!-- <div class="haircut" data-aos="fade-up" data-aos-delay="250">
+                    <img src="./assets/veterinario-consulta.png" alt="consultas médicas" class="service-img">
+                    <div class="haircut-info">
+                        <strong>consultas Médicas de seu Pet</strong>
+                        <a href="#">R$ 250,00</a>
+                    </div> -->
+
+                </div>
         </section>
     </section>
 
@@ -236,7 +247,161 @@
                 </a>
             </div>
 
-            <div id="raForm" class="hidden" aria-hidden="true"></div>
+            <div id="raForm" class="hidden" aria-hidden="true">
+
+                <h3> <span class="material-symbols-outlined">
+                        person
+                    </span>Dados do Tutor</h3>
+
+                <div class="grid-2">
+
+                    <div>
+                        <label>Nome</label>
+                        <input type="text" id="raNome" placeholder="Ex.: Maria" required />
+                    </div>
+
+                    <div>
+                        <label>Sobrenome</label>
+                        <input type="text" id="raSobrenome" placeholder="Ex.: Silva" required />
+                    </div>
+
+                </div>
+
+                <label>Telefone</label>
+                <input type="tel" id="raTelefone" placeholder="(81) 99999-9999" inputmode="tel-national"
+                    autocomplete="tel-national" required />
+
+                <hr>
+
+                <h3> <span class="material-symbols-outlined">
+                        pets
+                    </span>Dados do Pet</h3>
+
+                <label>Nome do Pet</label>
+                <input type="text" id="raPet" placeholder="Ex.: Rex" required />
+
+                <label>Espécie</label>
+
+                <select id="raEspecie" required>
+                    <option value="">Selecione uma espécie</option>
+                    <option>Cachorro</option>
+                    <option>Gato</option>
+                    <option>Roedores</option>
+                    <option>Avés e Répteis</option>
+                    <option>Outros</option>
+                </select>
+
+                <label>Raça do Pet</label>
+                <input type="text" id="raRaca" placeholder="Ex.: Labrador (Opcional).">
+
+                <label>Idade do Pet</label>
+                <input type="text" id="raIdade" placeholder="Ex.: 3 Mês (Opcional).">
+
+                <hr>
+
+                <h3> <span class="material-symbols-outlined">
+                        assignment
+                    </span> Plano</h3>
+
+                <div class="planos">
+
+                    <div class="plano-card">
+
+                        <input type="radio" name="plano" value="Bronze">
+
+                        <h4><span class="material-symbols-outlined" style="color: #CD7F32;">
+                                military_tech
+                            </span> Bronze</h4>
+
+                        <strong>R$ 39,90</strong>
+
+                        <ul>
+
+                            <li>5% OFF</li>
+
+                            <li>Descontos em produtos</li>
+
+                            <li>Banho + Hidratação</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="plano-card destaque">
+
+                        <input type="radio" name="plano" value="Prata">
+
+                        <h4><span class="material-symbols-outlined" style="color: #c0c0c0;">
+                                military_tech
+                            </span> Prata </h4>
+
+                        <strong>R$ 69,90</strong>
+
+                        <ul>
+
+                            <li>10% OFF</li>
+
+                            <li>Prioridade em consultas</li>
+
+                            <li>Brindes</li>
+
+                            <li>Banho + Tosa</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="plano-card">
+
+                        <input type="radio" name="plano" value="Ouro">
+
+                        <h4> <span class="material-symbols-outlined" style="color: #FFD700;">
+                                military_tech
+                            </span> Ouro</h4>
+
+                        <strong>R$ 150,50</strong>
+
+                        <ul>
+
+                            <li>20% OFF</li>
+
+                            <li>Banho + Tosa + Hidratação VIP</li>
+
+                            <li>Consultas Grátis</li>
+
+                            <li>Brindes</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <label><span class="material-symbols-outlined">
+                        calendar_clock
+                    </span> Data de início</label>
+
+                <input type="date" id="raInicio">
+
+                <div class="raResumo">
+
+                    Primeiro vencimento:
+
+                    <strong id="raVencimento">
+                        --
+                    </strong>
+
+                </div>
+
+                <button id="btnAssinarPlano">
+
+                    Assinar Plano <span class="material-symbols-outlined" style="color: #00FF2A;">
+                        check
+                    </span>
+
+                </button>
+
+            </div>
         </div>
     </div>
 
@@ -268,8 +433,8 @@
         <div class="modal-content" role="dialog" aria-modal="true">
             <span class="close" onclick="fecharModal('modalConfirmacao')">&times;</span>
             <h2>Agendamento Confirmado <span style="color: rgb(0, 255, 42);" class="material-symbols-outlined">
-calendar_check
-</span></h2>
+                    calendar_check
+                </span></h2>
             <div id="confResumo" class="conf-resumo"></div>
             <button type="button" id="btnOkConfirmacao">OK</button>
         </div>
@@ -309,7 +474,12 @@ calendar_check
         </div>
     </div>
 
+    <!-- ===== SweetAlert2 | Alerts mais bonito ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script type="module" src="./script.js"></script>
+    <script type="module" src="./club.js"></script>
+
 </body>
 
 </html>
